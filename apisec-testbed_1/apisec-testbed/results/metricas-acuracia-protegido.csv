@@ -1,0 +1,4 @@
+ferramenta,perfil,TP,FP,FN,REGRESSOES,TPR_recall,precisao,FDR,F1,n_alertas
+zap,protegido,0,17,0,0,0.0,0.0,1.0,0.0,17
+postman,protegido,0,0,0,0,0.0,0.0,0.0,0.0,0
+brute,protegido,0,0,0,0,0.0,0.0,0.0,0.0,0
