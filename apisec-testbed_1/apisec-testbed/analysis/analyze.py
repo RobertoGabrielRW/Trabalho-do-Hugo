@@ -30,7 +30,7 @@ from collections import defaultdict
 PATHPARAM = re.compile(r"/\d+(?=/|$)")
 
 def norm_route(r):
-    """Normaliza rota: remove query, host e substitui ids numericos por {id}."""
+    """Normaliza a rota: remove host/query e substitui IDs numericos por '{id}' para casar com o gabarito."""
     if not r:
         return ""
     r = re.sub(r"https?://[^/]+", "", r)
@@ -39,12 +39,13 @@ def norm_route(r):
     return r or "/"
 
 def route_match(alert_route, gt_route):
+    """Verifica se a rota do alerta corresponde a rota cadastrada no gabarito (*, exata ou prefixo)."""
     a, g = norm_route(alert_route), norm_route(gt_route)
     return g == "*" or a == g or a.startswith(g)
 
 # ----------------------------------------------------------------- parsers
 def parse_zap(path):
-    """Le zap-<perfil>.json (formato do zap-api-scan)."""
+    """Extrai alertas brutos do relatorio JSON gerado pelo OWASP ZAP."""
     out = []
     if not os.path.exists(path):
         return out
@@ -70,7 +71,7 @@ def parse_zap(path):
     return out
 
 def parse_postman(path):
-    """Le results/postman-findings-<perfil>.json (array normalizado gerado pela colecao)."""
+    """Extrai achados de logica e autorizacao salvos pela execucao da colecao Postman/Newman."""
     if not os.path.exists(path):
         return []
     with open(path) as fh:
@@ -82,8 +83,7 @@ def parse_postman(path):
              "name": a.get("class", ""), "risk": a.get("severity", "")} for a in arr]
 
 def parse_brute(path):
-    """Le results/brute-force-<perfil>.json (saida de analysis/brute_force.py).
-    Gera um alerta so quando o veredito e VULN-AUTH-01 (rajada sem nenhum 429)."""
+    """Le a saida do brute_force.py; emite alerta se confirmada a falha VULN-AUTH-01 (sem rate limit)."""
     if not os.path.exists(path):
         return []
     with open(path) as fh:
@@ -94,9 +94,7 @@ def parse_brute(path):
              "name": "Broken Authentication - sem rate limit", "risk": "High"}]
 
 def parse_restest(path):
-    """Le results/restest-<perfil>.csv gerado por analysis/restest_convert.py (uma linha por
-    operacao e codigo de falha). Sem atribuicao ao gabarito, o id vira NAO-ATRIBUIDO, que
-    nunca casa e conta como falso positivo."""
+    """Le as falhas encontradas pelo RESTest; itens sem correspondencia contam como falso positivo."""
     out = []
     if not os.path.exists(path):
         return out
@@ -111,7 +109,7 @@ def parse_restest(path):
 
 # ----------------------------------------------------------------- matching
 def classify(alerts, gt, tool):
-    """Retorna (tp_ids:set, fp:int, matched_alerts:list[(alert, gt_id|None)])."""
+    """Classifica alertas em Verdadeiros Positivos (TP) ou Falsos Positivos (FP) contra o gabarito."""
     tp_ids, fp = set(), 0
     matched = []
     gt_tool = [g for g in gt if tool in g.get("detectable_by", [])]
@@ -137,6 +135,7 @@ def classify(alerts, gt, tool):
     return tp_ids, fp, matched
 
 def metrics(tp, fp, fn):
+    """Calcula metricas de avaliacao: Recall (TPR), Precisao, Taxa de Falsas Descobertas (FDR) e F1."""
     recall = tp / (tp + fn) if (tp + fn) else 0.0
     prec   = tp / (tp + fp) if (tp + fp) else 0.0
     fpr    = fp / (fp + tp) if (fp + tp) else 0.0
@@ -145,6 +144,7 @@ def metrics(tp, fp, fn):
 
 # ----------------------------------------------------------------- main
 def main():
+    """Funcao principal: orquestra a leitura dos relatorios, calcula metricas e gera matrizes CSV/MD."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--profile", default="vulneravel")
     ap.add_argument("--results", default="../results")

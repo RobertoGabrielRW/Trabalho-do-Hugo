@@ -24,6 +24,7 @@ public class GatewaySecurityConfig {
     @Value("${gateway.enforce-jwt:true}")
     private boolean enforce;
 
+    /** Configura o filtro de seguranca do gateway: aberto no perfil vulneravel ou validando OAuth2/JWT no protegido. */
     @Bean
     public SecurityWebFilterChain chain(ServerHttpSecurity http) {
         http.csrf(ServerHttpSecurity.CsrfSpec::disable);
@@ -43,6 +44,7 @@ public class GatewaySecurityConfig {
             .build();
     }
 
+    /** Define politicas restritas de CORS permitindo apenas o frontend configurado. */
     private UrlBasedCorsConfigurationSource corsSource() {
         CorsConfiguration c = new CorsConfiguration();
         c.setAllowedOrigins(List.of("http://localhost:3000"));

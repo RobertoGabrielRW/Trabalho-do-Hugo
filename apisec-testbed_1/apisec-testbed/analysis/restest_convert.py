@@ -26,7 +26,7 @@ ATRIBUICOES = {
 }
 
 def carregar_erros(path):
-    """Mapa (operacao, codigo) -> linha do relatorio, so para severidade de erro."""
+    """Filtra falhas com severidade de erro e mapeia operacoes para suas rotas OpenAPI."""
     with open(path, encoding="utf-8") as fh:
         rel = json.load(fh)
     erros = {}
@@ -37,6 +37,7 @@ def carregar_erros(path):
     return erros, rotas
 
 def main():
+    """Converte relatorios JSON do RESTest em formato tabular CSV compativel com o analyze.py."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", default=os.path.join(os.path.dirname(__file__), "..", "results"))
     args = ap.parse_args()

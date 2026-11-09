@@ -13,13 +13,14 @@ UNIDADES = {"B": 1, "kB": 1e3, "KB": 1e3, "KiB": 1024, "MB": 1e6, "MiB": 1024**2
             "GB": 1e9, "GiB": 1024**3}
 
 def para_bytes(texto):
+    """Converte valores formatados de memoria com unidade (ex.: 10MiB, 1GB) para bytes."""
     m = re.match(r"([\d.]+)\s*([A-Za-z]+)", texto.strip())
     if not m:
         return 0.0
     return float(m.group(1)) * UNIDADES.get(m.group(2), 1)
 
 def amostra():
-    """Uma leitura de docker stats para os containers apisec-*."""
+    """Executa 'docker stats' e extrai CPU (%) e memoria residente (MB) dos containers do testbed."""
     out = subprocess.run(["docker", "stats", "--no-stream", "--format", "{{json .}}"],
                          capture_output=True, text=True, timeout=60).stdout
     linhas = []
@@ -36,6 +37,7 @@ def amostra():
     return linhas
 
 def main():
+    """Coleta amostras periodicas de CPU e RAM dos containers durante a execucao do teste."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--profile", required=True)
     ap.add_argument("--scenario", required=True, help="ex.: carga, varredura")

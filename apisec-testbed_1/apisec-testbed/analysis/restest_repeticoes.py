@@ -30,6 +30,7 @@ def main():
         linhas[perfil].append((seed, tp, fp, fn))
 
     def resumo(valores):
+        """Retorna media e desvio padrao (u +- dp) formatados a partir de uma lista numerica."""
         if len(valores) < 2:
             return f"{valores[0]:.1f} (1 execucao)" if valores else "-"
         return f"{st.mean(valores):.1f} ± {st.pstdev(valores):.1f}"

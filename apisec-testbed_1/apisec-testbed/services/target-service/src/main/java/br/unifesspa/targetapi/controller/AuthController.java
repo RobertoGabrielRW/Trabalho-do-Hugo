@@ -26,6 +26,7 @@ public class AuthController {
         this.flags = flags;
     }
 
+    /** Realiza autenticacao (sujeito a SQLi VULN-SQLI-03 e User Enumeration VULN-AUTH-02 no modo vulneravel). */
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody Map<String, String> body) {
         String username = body.getOrDefault("username", "");

@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 @Configuration
 public class RateLimitConfig {
 
+    /** Extrai o endereco IP do cliente para ser usado como chave do rate limiter (Token Bucket no Redis). */
     @Bean
     public KeyResolver ipKeyResolver() {
         return exchange -> Mono.just(
