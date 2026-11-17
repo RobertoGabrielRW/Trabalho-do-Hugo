@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APISec Testbed — Painel de Apresentação e Artefatos</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --blue: #3b82f6;
+      --green: #22c55e;
+      --red: #ef4444;
+      --amber: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.75rem;
+    }
+
+    header h1 {
+      font-size: 1.65rem;
+      margin-bottom: 0.35rem;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .link-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.15rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+    }
+
+    .link-card .tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+      width: fit-content;
+    }
+
+    .tag-live {
+      background: rgba(34, 197, 94, 0.18);
+      color: #4ade80;
+    }
+
+    .tag-report {
+      background: rgba(59, 130, 246, 0.18);
+      color: #60a5fa;
+    }
+
+    .tag-vuln {
+      background: rgba(239, 68, 68, 0.18);
+      color: #f87171;
+    }
+
+    .link-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .link-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      color: #93c5fd;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    th,
+    td {
+      padding: 0.65rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.6);
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge-tp,
+    .badge-vuln {
+      background: rgba(239, 68, 68, 0.2);
+      color: #fca5a5;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .badge-ok {
+      background: rgba(34, 197, 94, 0.2);
+      color: #86efac;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .badge-fn {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fcd34d;
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    code {
+      font-family: Consolas, Monaco, monospace;
+      background: rgba(15, 23, 42, 0.7);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #e2e8f0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>APISec Testbed — Benchmarking Empírico de Segurança de APIs</h1>
+      <p>Unifesspa • Segurança em Redes de Computadores — Prof. Hugo Kuribayashi • Central de Serviços e Artefatos</p>
+    </header>
+
+    <div class="grid">
+      <a class="link-card" href="http://localhost:3000" target="_blank">
+        <div>
+          <span class="tag tag-live">Serviço Ao Vivo :3000</span>
+          <h3>Grafana — APISec Benchmark</h3>
+          <p>Dashboard de telemetria em tempo real (Latência p95, CPU e Memória RAM). Login: <code>admin</code> /
+            <code>admin</code>
+          </p>
+        </div>
+      </a>
+      <a class="link-card" href="http://localhost:8080/swagger-ui.html" target="_blank">
+        <div>
+          <span class="tag tag-live">Serviço Ao Vivo :8080</span>
+          <h3>API Gateway &amp; Swagger UI</h3>
+          <p>Ponto único de entrada exposto às ferramentas de teste (Contrato OpenAPI 3.0 do microsserviço alvo).</p>
+        </div>
+      </a>
+      <a class="link-card" href="http://localhost:9090" target="_blank">
+        <div>
+          <span class="tag tag-live">Serviço Ao Vivo :9090</span>
+          <h3>Prometheus Time-Series</h3>
+          <p>Coleta de métricas Micrometer/Actuator da JVM do Gateway e do Target Service.</p>
+        </div>
+      </a>
+      <a class="link-card" href="http://localhost:8083" target="_blank">
+        <div>
+          <span class="tag tag-live">Serviço Ao Vivo :8083</span>
+          <h3>Keycloak IAM (OAuth2 / JWT)</h3>
+          <p>Realm <code>apisec</code> (usuários: <code>alice</code>, <code>bob</code>, <code>admin</code>). Console
+            Admin: <code>admin</code> / <code>admin</code></p>
+        </div>
+      </a>
+      <a class="link-card" href="zap-vulneravel.html" target="_blank">
+        <div>
+          <span class="tag tag-report">Artefato DAST</span>
+          <h3>Relatório OWASP ZAP (Vulnerável)</h3>
+          <p>Relatório HTML da varredura no perfil Vulnerável (11 vulnerabilidades exploradas, 0 regressões).</p>
+        </div>
+      </a>
+      <a class="link-card" href="zap-protegido.html" target="_blank">
+        <div>
+          <span class="tag tag-report">Artefato DAST</span>
+          <h3>Relatório OWASP ZAP (Protegido)</h3>
+          <p>Relatório HTML da varredura no perfil protegido (0 vulnerabilidades exploradas, 0 regressões).</p>
+        </div>
+      </a>
+
+      <a class="link-card" href="http://localhost:8084" target="_blank">
+        <div>
+          <span class="tag tag-live">Serviço Ao Vivo :8084</span>
+          <h3>Google cAdvisor</h3>
+          <p>Inspeção de recursos e isolamento de containers Docker (cgroups CPU e memória).</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="section">
+      <h2>1. Acurácia de Detecção por Ferramenta (Etapa B — Vulnerável vs. Protegido)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Ferramenta</th>
+            <th>Perfil Experimental</th>
+            <th>TP</th>
+            <th>FP</th>
+            <th>FN</th>
+            <th>Regressões</th>
+            <th>TPR (Recall)</th>
+            <th>Precisão</th>
+            <th>FDR (1 - Precisão)</th>
+            <th>F1-Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>OWASP ZAP (DAST)</strong></td>
+            <td><span class="badge-vuln">Vulnerável</span></td>
+            <td>2</td>
+            <td>165</td>
+            <td>3</td>
+            <td>0</td>
+            <td>0.400</td>
+            <td>0.012</td>
+            <td>0.988</td>
+            <td>0.023</td>
+          </tr>
+          <tr>
+            <td><strong>Postman / Newman (Lógica)</strong></td>
+            <td><span class="badge-vuln">Vulnerável</span></td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><strong>1.000</strong></td>
+            <td><strong>1.000</strong></td>
+            <td>0.000</td>
+            <td><strong>1.000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Brute Force (Rajada Paralela)</strong></td>
+            <td><span class="badge-vuln">Vulnerável</span></td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><strong>1.000</strong></td>
+            <td><strong>1.000</strong></td>
+            <td>0.000</td>
+            <td><strong>1.000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>OWASP ZAP (DAST)</strong></td>
+            <td><span class="badge-ok">Protegido</span></td>
+            <td>0</td>
+            <td>17</td>
+            <td>0</td>
+            <td><span class="badge-ok">0 (Sem Regressão)</span></td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td>1.000</td>
+            <td>0.000</td>
+          </tr>
+          <tr>
+            <td><strong>Postman / Newman (Lógica)</strong></td>
+            <td><span class="badge-ok">Protegido</span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="badge-ok">0 (Sem Regressão)</span></td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td>0.000</td>
+          </tr>
+          <tr>
+            <td><strong>Brute Force (Rajada Paralela)</strong></td>
+            <td><span class="badge-ok">Protegido</span></td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td><span class="badge-ok">0 (Sem Regressão)</span></td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td>0.000</td>
+            <td>0.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>2. Matriz Ferramenta × Vulnerabilidade e Mitigação (OWASP API Security Top 10: 2023)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>OWASP / CWE</th>
+            <th>Classe da Vulnerabilidade</th>
+            <th>Rota Alvo</th>
+            <th>ZAP</th>
+            <th>Postman</th>
+            <th>Brute</th>
+            <th>Comportamento no Perfil Protegido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>VULN-SQLI-01</code></td>
+            <td>API8 / CWE-89</td>
+            <td>SQL Injection (Busca)</td>
+            <td><code>GET /api/products/search</code></td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> PreparedStatement + whitelist ORDER BY</td>
+          </tr>
+          <tr>
+            <td><code>VULN-SQLI-02</code></td>
+            <td>API8 / CWE-89</td>
+            <td>SQL Injection (Path ID)</td>
+            <td><code>GET /api/products/{id}</code></td>
+            <td><span class="badge-fn">FN</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Parse numérico <code>Integer.parseInt(id)</code></td>
+          </tr>
+          <tr>
+            <td><code>VULN-SQLI-03</code></td>
+            <td>API8 / CWE-89</td>
+            <td>SQL Injection (Login)</td>
+            <td><code>POST /api/auth/login</code></td>
+            <td><span class="badge-fn">FN</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Query parametrizada + OAuth2 Keycloak</td>
+          </tr>
+          <tr>
+            <td><code>VULN-BOLA-01</code></td>
+            <td>API1 / CWE-639</td>
+            <td>Broken Object Level Auth (BOLA)</td>
+            <td><code>GET /api/orders/{id}</code></td>
+            <td>-</td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Valida dono do pedido (retorna 404 p/ terceiros)</td>
+          </tr>
+          <tr>
+            <td><code>VULN-BOLA-02</code></td>
+            <td>API3 / CWE-213</td>
+            <td>Excessive Data Exposure</td>
+            <td><code>GET /api/orders/{id}</code></td>
+            <td>-</td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Omite atributo sensível <code>card_last4</code></td>
+          </tr>
+          <tr>
+            <td><code>VULN-AUTH-01</code></td>
+            <td>API2 / CWE-307</td>
+            <td>Broken Auth (Sem Rate Limit)</td>
+            <td><code>POST /api/auth/login</code></td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="badge-tp">TP</span></td>
+            <td><span class="badge-ok">Mitigado</span> Redis Token Bucket no Gateway (HTTP 429)</td>
+          </tr>
+          <tr>
+            <td><code>VULN-AUTH-02</code></td>
+            <td>API2 / CWE-203</td>
+            <td>User Enumeration</td>
+            <td><code>POST /api/auth/login</code></td>
+            <td>-</td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Mensagem única (<code>credenciais invalidas</code>)</td>
+          </tr>
+          <tr>
+            <td><code>VULN-MISC-01</code></td>
+            <td>API8 / CWE-16</td>
+            <td>Debug / Actuator Exposto</td>
+            <td><code>GET /api/debug/config</code></td>
+            <td>-</td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Bloqueado com <code>denyAll()</code> (HTTP 403)</td>
+          </tr>
+          <tr>
+            <td><code>VULN-MISC-02</code></td>
+            <td>API8 / CWE-942</td>
+            <td>CORS Permissivo c/ Credenciais</td>
+            <td><code>* (/api/products)</code></td>
+            <td><span class="badge-fn">FN</span></td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Origem restrita a <code>localhost:3000</code> (HTTP 403)</td>
+          </tr>
+          <tr>
+            <td><code>VULN-MISC-03</code></td>
+            <td>API8 / CWE-209</td>
+            <td>Stack Trace Vazado no Erro 500</td>
+            <td><code>GET /api/debug/error</code></td>
+            <td><span class="badge-tp">TP</span></td>
+            <td>-</td>
+            <td>-</td>
+            <td><span class="badge-ok">Mitigado</span> Rota bloqueada (403) + <code>stacktrace=never</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section">
+      <h2>3. Desempenho, Latência e Consumo de Recursos sob Carga Concorrente (Etapa C)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rota / Container</th>
+            <th>Perfil</th>
+            <th>p50 (ms)</th>
+            <th>p90 (ms)</th>
+            <th>p95 (ms)</th>
+            <th>p99 (ms)</th>
+            <th>Throughput (RPS)</th>
+            <th>Taxa Bloqueio (HTTP 429)</th>
+            <th>CPU Média / RAM Média</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>GET /api/products</code></td>
+            <td><span class="badge-vuln">Vulnerável</span></td>
+            <td>106.52</td>
+            <td>204.10</td>
+            <td>268.49</td>
+            <td>395.32</td>
+            <td>238.7 req/s</td>
+            <td>0.0%</td>
+            <td>Gateway: 98.2% CPU / 187.1 MiB</td>
+          </tr>
+          <tr>
+            <td><code>GET /api/orders/1</code></td>
+            <td><span class="badge-vuln">Vulnerável</span></td>
+            <td>109.81</td>
+            <td>211.63</td>
+            <td>286.51</td>
+            <td>397.22</td>
+            <td>238.7 req/s</td>
+            <td>0.0%</td>
+            <td>Target SUT: <strong>82.8% CPU</strong> / 167.9 MiB</td>
+          </tr>
+          <tr>
+            <td><code>GET /api/products</code></td>
+            <td><span class="badge-ok">Protegido</span></td>
+            <td>101.32</td>
+            <td>203.24</td>
+            <td>278.92</td>
+            <td>410.48</td>
+            <td>244.6 req/s</td>
+            <td>87.5% (Rate Limit Ativo)</td>
+            <td>Gateway: 97.7% CPU / 189.7 MiB</td>
+          </tr>
+          <tr>
+            <td><code>GET /api/orders/1</code></td>
+            <td><span class="badge-ok">Protegido</span></td>
+            <td>100.98</td>
+            <td>202.99</td>
+            <td>279.07</td>
+            <td>406.01</td>
+            <td>244.6 req/s</td>
+            <td>87.3% (Rate Limit Ativo)</td>
+            <td>Target SUT: <strong>52.9% CPU (-30%)</strong> / 164.9 MiB</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>
