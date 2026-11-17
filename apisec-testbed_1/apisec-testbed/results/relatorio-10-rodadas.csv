@@ -1,0 +1,79 @@
+categoria,perfil,alvo,metrica,media,desvio_padrao,min,max
+vulnerabilidade,ambos,VULN-SQLI-01,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-SQLI-02,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-SQLI-03,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-BOLA-01,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-BOLA-02,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-AUTH-01,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-AUTH-02,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-MISC-01,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-MISC-02,taxa_sucesso_pct,100.0,0.0,10,10
+vulnerabilidade,ambos,VULN-MISC-03,taxa_sucesso_pct,100.0,0.0,10,10
+brute_force,vulneravel,/api/auth/login,http_401,100,0.0,100,100
+brute_force,vulneravel,/api/auth/login,http_429,0,0.0,0,0
+brute_force,protegido,/api/auth/login,http_401,48.1,12.3,40,80
+brute_force,protegido,/api/auth/login,http_429,50.9,11.785,20,60
+latencia,vulneravel,GET /api/products,p50_ms,90.845,34.412,69.76,187.75
+latencia,vulneravel,GET /api/products,p90_ms,134.446,59.661,98.08,293.55
+latencia,vulneravel,GET /api/products,p95_ms,205.283,36.517,184.17,311.85
+latencia,vulneravel,GET /api/products,p99_ms,344.793,42.826,294.24,460.62
+latencia,vulneravel,GET /api/products,throughput_rps,348.89,14.629,329.1,374.4
+latencia,vulneravel,GET /api/products,erro_pct,0.0,0.0,0.0,0.0
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,p50_ms,91.083,34.58,69.92,188.69
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,p90_ms,136.13,59.889,99.7,295.91
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,p95_ms,208.534,42.589,171.3,332.29
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,p99_ms,351.968,50.248,293.84,471.75
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,throughput_rps,348.89,14.629,329.1,374.4
+latencia,vulneravel,GET /api/products/search?q=roteador&order=name,erro_pct,0.0,0.0,0.0,0.0
+latencia,vulneravel,GET /api/orders/1,p50_ms,93.415,34.752,72.22,191.68
+latencia,vulneravel,GET /api/orders/1,p90_ms,140.052,60.395,101.75,297.29
+latencia,vulneravel,GET /api/orders/1,p95_ms,210.797,55.313,182.26,374.52
+latencia,vulneravel,GET /api/orders/1,p99_ms,352.364,51.898,308.09,494.24
+latencia,vulneravel,GET /api/orders/1,throughput_rps,348.89,14.629,329.1,374.4
+latencia,vulneravel,GET /api/orders/1,erro_pct,0.0,0.0,0.0,0.0
+latencia,protegido,GET /api/products,p50_ms,75.024,19.828,58.14,119.17
+latencia,protegido,GET /api/products,p90_ms,131.101,61.674,91.63,296.84
+latencia,protegido,GET /api/products,p95_ms,199.561,62.957,161.92,383.33
+latencia,protegido,GET /api/products,p99_ms,319.588,62.403,272.57,499.82
+latencia,protegido,GET /api/products,throughput_rps,357.45,6.683,343.9,367.8
+latencia,protegido,GET /api/products,erro_pct,91.2,3.273,82.4,93.5
+latencia,protegido,GET /api/products/search?q=roteador&order=name,p50_ms,75.449,19.726,59.09,119.89
+latencia,protegido,GET /api/products/search?q=roteador&order=name,p90_ms,133.182,61.138,94.72,295.95
+latencia,protegido,GET /api/products/search?q=roteador&order=name,p95_ms,200.48,64.295,162.1,388.75
+latencia,protegido,GET /api/products/search?q=roteador&order=name,p99_ms,316.592,63.09,270.41,500.15
+latencia,protegido,GET /api/products/search?q=roteador&order=name,throughput_rps,357.45,6.683,343.9,367.8
+latencia,protegido,GET /api/products/search?q=roteador&order=name,erro_pct,91.25,3.25,82.6,93.2
+latencia,protegido,GET /api/orders/1,p50_ms,75.01,18.988,59.24,116.43
+latencia,protegido,GET /api/orders/1,p90_ms,133.206,60.911,93.22,295.27
+latencia,protegido,GET /api/orders/1,p95_ms,200.902,62.455,156.56,382.93
+latencia,protegido,GET /api/orders/1,p99_ms,325.762,63.542,277.94,508.86
+latencia,protegido,GET /api/orders/1,throughput_rps,357.45,6.683,343.9,367.8
+latencia,protegido,GET /api/orders/1,erro_pct,91.33,3.354,82.4,93.4
+recursos,vulneravel,apisec-cadvisor,cpu_pct,2.145,1.176,0.505,4.327
+recursos,vulneravel,apisec-cadvisor,mem_mb,37.78,2.656,30.875,40.65
+recursos,vulneravel,apisec-gateway,cpu_pct,57.834,26.936,34.78,100.465
+recursos,vulneravel,apisec-gateway,mem_mb,236.528,11.705,204.0,245.45
+recursos,vulneravel,apisec-grafana,cpu_pct,0.722,1.276,0.133,4.525
+recursos,vulneravel,apisec-grafana,mem_mb,55.78,3.638,52.875,61.825
+recursos,vulneravel,apisec-keycloak,cpu_pct,2.166,1.01,0.91,4.027
+recursos,vulneravel,apisec-keycloak,mem_mb,898.222,18.324,861.1,922.9
+recursos,vulneravel,apisec-prometheus,cpu_pct,0.471,0.39,0.12,1.54
+recursos,vulneravel,apisec-prometheus,mem_mb,36.682,10.007,31.05,61.15
+recursos,vulneravel,apisec-redis,cpu_pct,4.402,1.171,2.59,6.367
+recursos,vulneravel,apisec-redis,mem_mb,10.492,0.718,8.925,11.275
+recursos,vulneravel,apisec-target,cpu_pct,34.233,20.917,19.375,89.035
+recursos,vulneravel,apisec-target,mem_mb,216.803,7.555,195.925,224.375
+recursos,protegido,apisec-cadvisor,cpu_pct,1.472,0.834,0.537,3.54
+recursos,protegido,apisec-cadvisor,mem_mb,40.515,1.167,38.05,41.85
+recursos,protegido,apisec-gateway,cpu_pct,57.896,26.767,32.318,98.355
+recursos,protegido,apisec-gateway,mem_mb,208.385,10.89,179.425,216.225
+recursos,protegido,apisec-grafana,cpu_pct,0.421,0.39,0.085,1.433
+recursos,protegido,apisec-grafana,mem_mb,53.175,0.381,52.6,53.975
+recursos,protegido,apisec-keycloak,cpu_pct,3.362,3.254,0.495,12.29
+recursos,protegido,apisec-keycloak,mem_mb,1005.233,24.733,968.1,1050.1
+recursos,protegido,apisec-prometheus,cpu_pct,0.245,0.092,0.138,0.422
+recursos,protegido,apisec-prometheus,mem_mb,40.135,1.855,37.675,42.55
+recursos,protegido,apisec-redis,cpu_pct,5.014,1.232,2.595,7.047
+recursos,protegido,apisec-redis,mem_mb,10.703,0.251,10.2,11.075
+recursos,protegido,apisec-target,cpu_pct,26.963,14.651,12.72,67.14
+recursos,protegido,apisec-target,mem_mb,183.395,7.537,162.65,190.6
