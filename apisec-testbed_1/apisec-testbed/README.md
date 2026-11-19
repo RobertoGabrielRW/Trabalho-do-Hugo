@@ -5,7 +5,9 @@ mede *popularidade* de ferramentas e estratégias, este testbed mede **eficácia
 (TPR/FPR), **cobertura** (matriz ferramenta × vulnerabilidade) e **custo**
 (latência, CPU, RAM) num ambiente controlado e reproduzível.
 
-Disciplina: Segurança em Redes de Computadores — Prof. Hugo Kuribayashi (Unifesspa).
+Disciplina: Segurança em Redes de Computadores — Prof. Hugo Pereira Kuribayashi (Unifesspa).
+
+Desenvolvido por: Emerson Braga Pinto, Josué Xavier Silva e Roberto Gabriel Rodrigues Wanzeler 
 
 ---
 
