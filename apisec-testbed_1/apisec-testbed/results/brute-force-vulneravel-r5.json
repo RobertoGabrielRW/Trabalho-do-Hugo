@@ -1,0 +1,11 @@
+{
+  "profile": "vulneravel",
+  "attempts": 100,
+  "status": {
+    "401": 100
+  },
+  "http_429": 0,
+  "erros_conexao": 0,
+  "veredito": "VULN-AUTH-01",
+  "achado": "VULN-AUTH-01"
+}

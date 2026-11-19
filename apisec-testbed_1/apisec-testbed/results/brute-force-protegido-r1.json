@@ -1,0 +1,12 @@
+{
+  "profile": "protegido",
+  "attempts": 100,
+  "status": {
+    "401": 80,
+    "429": 20
+  },
+  "http_429": 20,
+  "erros_conexao": 0,
+  "veredito": "SEM-ACHADO",
+  "achado": null
+}

@@ -22,7 +22,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 def tentativa(base, user, i):
-    """Uma tentativa de login com senha errada. Devolve o status HTTP (0 = falha de conexao)."""
+    """Envia uma requisicao POST de login com senha errada; retorna o codigo HTTP recebido."""
     body = json.dumps({"username": user, "password": f"senha-errada-{i}"}).encode()
     req = urllib.request.Request(base + "/api/auth/login", data=body, method="POST",
                                  headers={"Content-Type": "application/json"})
@@ -36,6 +36,7 @@ def tentativa(base, user, i):
 
 
 def main():
+    """Dispara rajada concorrente de logins para verificar se ha bloqueio por rate limit (429)."""
     here = os.path.dirname(os.path.abspath(__file__))
     ap = argparse.ArgumentParser()
     ap.add_argument("--profile", default="vulneravel")

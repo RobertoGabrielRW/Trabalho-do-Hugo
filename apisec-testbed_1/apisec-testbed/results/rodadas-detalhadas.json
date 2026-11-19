@@ -1,0 +1,1542 @@
+{
+  "vulneravel": [
+    {
+      "round": "r1",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r2",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r3",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r4",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r5",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r6",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r7",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r8",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r9",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    },
+    {
+      "round": "r10",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "items=5"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"NAME\":\"Roteador Wi-Fi 6\",\"PRICE\":899.90,\"CATEGORY\":\"redes\"}"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "token_issued"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":2,\"OWNER\":\"bob\",\"ITEM\":\"Roteador Wi-Fi 6\",\"TOTAL\":899.90,\"CARD_LAST4\":\"188"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "{\"ID\":1,\"OWNER\":\"alice\",\"ITEM\":\"Firewall UTM\",\"TOTAL\":4590.00,\"CARD_LAST4\":\"4242"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "exist={\"error\":\"senha incorreta\"} | noexist={\"error\":\"usuario inexistente\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "jwt_secret leaked"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 200,
+          "vulnerable": true,
+          "detail": "ACAO='https://evil.example', ACAC='true'"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 500,
+          "vulnerable": true,
+          "detail": "stack_trace_exposed"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 401,
+          "vulnerable": true,
+          "detail": "401=100, 429=0, veredito=VULN-AUTH-01"
+        }
+      ],
+      "brute_force": {
+        "profile": "vulneravel",
+        "attempts": 100,
+        "status": {
+          "401": 100
+        },
+        "http_429": 0,
+        "erros_conexao": 0,
+        "veredito": "VULN-AUTH-01",
+        "achado": "VULN-AUTH-01"
+      }
+    }
+  ],
+  "protegido": [
+    {
+      "round": "r1",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T11:56:09.888+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=80, 429=20, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "401": 80,
+          "429": 20
+        },
+        "http_429": 20,
+        "erros_conexao": 0,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r2",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T11:57:37.341+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=53, 429=47, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "401": 53,
+          "429": 47
+        },
+        "http_429": 47,
+        "erros_conexao": 0,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r3",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T11:58:37.299+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=60, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "401": 40,
+          "429": 60
+        },
+        "http_429": 60,
+        "erros_conexao": 0,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r4",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T11:59:25.539+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=59, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 1,
+          "401": 40,
+          "429": 59
+        },
+        "http_429": 59,
+        "erros_conexao": 1,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r5",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:00:05.551+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=59, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 1,
+          "401": 40,
+          "429": 59
+        },
+        "http_429": 59,
+        "erros_conexao": 1,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r6",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:00:43.664+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=58, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 2,
+          "401": 40,
+          "429": 58
+        },
+        "http_429": 58,
+        "erros_conexao": 2,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r7",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:01:21.194+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=59, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 1,
+          "401": 40,
+          "429": 59
+        },
+        "http_429": 59,
+        "erros_conexao": 1,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r8",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:01:59.259+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=40, 429=56, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 4,
+          "401": 40,
+          "429": 56
+        },
+        "http_429": 56,
+        "erros_conexao": 4,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r9",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:02:37.121+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=56, 429=44, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "401": 56,
+          "429": 44
+        },
+        "http_429": 44,
+        "erros_conexao": 0,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    },
+    {
+      "round": "r10",
+      "vulns": [
+        {
+          "id": "VULN-SQLI-01",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "items=0"
+        },
+        {
+          "id": "VULN-SQLI-02",
+          "http_status": 500,
+          "vulnerable": false,
+          "detail": "{\"timestamp\":\"2026-11-17T12:03:15.090+00:00\",\"status\":500,\"error\":\"Internal Serv"
+        },
+        {
+          "id": "VULN-SQLI-03",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "{\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-BOLA-01",
+          "http_status": 404,
+          "vulnerable": false,
+          "detail": "{\"error\":\"nao encontrado\"}"
+        },
+        {
+          "id": "VULN-BOLA-02",
+          "http_status": 200,
+          "vulnerable": false,
+          "detail": "{\"total\":4590.00,\"item\":\"Firewall UTM\",\"owner\":\"alice\",\"id\":1}"
+        },
+        {
+          "id": "VULN-AUTH-02",
+          "http_status": 401,
+          "vulnerable": false,
+          "detail": "exist={\"error\":\"credenciais invalidas\"} | noexist={\"error\":\"credenciais invalidas\"}"
+        },
+        {
+          "id": "VULN-MISC-01",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-MISC-02",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "ACAO='', ACAC=''"
+        },
+        {
+          "id": "VULN-MISC-03",
+          "http_status": 403,
+          "vulnerable": false,
+          "detail": "status=403"
+        },
+        {
+          "id": "VULN-AUTH-01",
+          "http_status": 429,
+          "vulnerable": false,
+          "detail": "401=52, 429=47, veredito=SEM-ACHADO"
+        }
+      ],
+      "brute_force": {
+        "profile": "protegido",
+        "attempts": 100,
+        "status": {
+          "0": 1,
+          "401": 52,
+          "429": 47
+        },
+        "http_429": 47,
+        "erros_conexao": 1,
+        "veredito": "SEM-ACHADO",
+        "achado": null
+      }
+    }
+  ]
+}

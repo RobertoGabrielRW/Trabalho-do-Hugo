@@ -21,6 +21,7 @@ ROUTES = [
 ]
 
 def one_request(base, method, path, token):
+    """Envia uma requisicao HTTP individual medindo o tempo de resposta em milissegundos."""
     url = base + path
     req = urllib.request.Request(url, method=method)
     if token:
@@ -37,8 +38,7 @@ def one_request(base, method, path, token):
     return (time.perf_counter() - t0) * 1000.0, code
 
 def login(base, profile, user="alice", pw="alice123"):
-    """Token de alice. Protegido: Keycloak (unico emissor que o gateway e o target aceitam).
-    Vulneravel: login local. Sem o token certo, a rota autenticada mediria um 401."""
+    """Obtem token JWT de teste: direto do Keycloak no modo protegido, ou via rota local no vulneravel."""
     try:
         if profile == "protegido":
             # Keycloak exposto no host em 8083; o iss do token e keycloak:8080 (KC_HOSTNAME fixo)
@@ -57,6 +57,7 @@ def login(base, profile, user="alice", pw="alice123"):
         return ""
 
 def pctl(xs, p):
+    """Calcula o percentil 'p' (ex.: 50, 95, 99) de uma lista de valores numericos."""
     if not xs:
         return 0.0
     xs = sorted(xs)
@@ -64,6 +65,7 @@ def pctl(xs, p):
     return round(xs[k], 2)
 
 def main():
+    """Gera carga concorrente nas rotas e calcula throughput e percentis de latencia."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--base", default="http://localhost:8080")
     ap.add_argument("--profile", default="vulneravel")

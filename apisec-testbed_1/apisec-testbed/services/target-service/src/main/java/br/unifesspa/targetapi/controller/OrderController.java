@@ -25,6 +25,7 @@ public class OrderController {
         this.flags = flags;
     }
 
+    /** Consulta pedido por ID (permite BOLA VULN-BOLA-01 e exposicao de cartao VULN-BOLA-02 no modo vulneravel). */
     @GetMapping("/{id}")
     public ResponseEntity<?> byId(@PathVariable("id") long id, Authentication auth) {
         List<Map<String, Object>> rows =
@@ -49,6 +50,7 @@ public class OrderController {
                 "item", order.get("item"), "total", order.get("total")));
     }
 
+    /** Lista pedidos do usuario logado (ou lista global sem filtro quando em modo vulneravel). */
     @GetMapping
     public List<Map<String, Object>> mine(Authentication auth) {
         if (flags.isBola()) {

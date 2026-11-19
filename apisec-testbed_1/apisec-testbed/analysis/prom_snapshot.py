@@ -15,11 +15,13 @@ QUERIES = {
 }
 
 def query_range(prom, expr, start, end, step=15):
+    """Consulta series temporais da API do Prometheus em uma janela de tempo."""
     qs = urllib.parse.urlencode({"query": expr, "start": start, "end": end, "step": step})
     with urllib.request.urlopen(f"{prom}/api/v1/query_range?{qs}", timeout=30) as r:
         return json.loads(r.read())
 
 def main():
+    """Exporta series temporais de CPU, Heap e latencia do Prometheus para CSV."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--prom", default="http://localhost:9090")
     ap.add_argument("--profile", default="vulneravel")

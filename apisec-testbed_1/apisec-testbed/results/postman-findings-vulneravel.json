@@ -1,0 +1,37 @@
+[
+  {
+    "tool": "postman",
+    "id": "VULN-BOLA-01",
+    "route": "/api/orders/2",
+    "class": "Broken Object Level Authorization",
+    "severity": "High"
+  },
+  {
+    "tool": "postman",
+    "id": "VULN-BOLA-02",
+    "route": "/api/orders/2",
+    "class": "Excessive Data Exposure",
+    "severity": "Medium"
+  },
+  {
+    "tool": "postman",
+    "id": "VULN-AUTH-02",
+    "route": "/api/auth/login",
+    "class": "User Enumeration",
+    "severity": "Low"
+  },
+  {
+    "tool": "postman",
+    "id": "VULN-MISC-01",
+    "route": "/api/debug/config",
+    "class": "Security Misconfiguration",
+    "severity": "High"
+  },
+  {
+    "tool": "postman",
+    "id": "VULN-MISC-02",
+    "route": "/api/products",
+    "class": "Security Misconfiguration - CORS permissivo",
+    "severity": "Medium"
+  }
+]

@@ -1,0 +1,4 @@
+rota,n,p50_ms,p90_ms,p95_ms,p99_ms,media_ms,throughput_rps,erro_pct
+GET /api/products,2834,63.67,100.74,165.35,283.22,64.62,354.2,93.1
+GET /api/products/search?q=roteador&order=name,2834,63.43,103.36,168.99,284.35,65.07,354.2,93.2
+GET /api/orders/1,2834,63.01,100.1,156.56,277.94,63.95,354.2,93.3

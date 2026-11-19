@@ -22,11 +22,13 @@ public class ProductController {
         this.flags = flags;
     }
 
+    /** Lista todos os produtos cadastrados. */
     @GetMapping
     public List<Map<String, Object>> all() {
         return jdbc.queryForList("SELECT id, name, price, category FROM products");
     }
 
+    /** Busca produtos por nome e ordena resultado (VULN-SQLI-01 via concatenacao direta quando vulneravel). */
     @GetMapping("/search")
     public List<Map<String, Object>> search(@RequestParam(name = "q", defaultValue = "") String q,
                                             @RequestParam(name = "order", defaultValue = "id") String order) {
@@ -42,6 +44,7 @@ public class ProductController {
                 "%" + q + "%");
     }
 
+    /** Busca produto por ID no caminho (VULN-SQLI-02 via concatenacao direta quando vulneravel). */
     @GetMapping("/{id}")
     public Map<String, Object> byId(@PathVariable("id") String id) {
         if (flags.isSqlInjection()) {

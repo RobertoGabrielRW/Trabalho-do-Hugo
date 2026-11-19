@@ -20,6 +20,7 @@ public class DebugController {
         this.flags = flags;
     }
 
+    /** Exibe configuracoes do sistema (vaza segredos e variaveis de ambiente VULN-MISC-01 se vulneravel). */
     @GetMapping("/config")
     public Map<String, Object> config() {
         Map<String, Object> out = new HashMap<>();
@@ -33,6 +34,7 @@ public class DebugController {
         return out;
     }
 
+    /** Lanca excecao forcada (vaza stack trace completo VULN-MISC-03 se vulneravel). */
     @GetMapping("/error")
     public String boom() {
         // FALHA INJETADA: stack trace completo devolvido ao cliente (server.error.include-stacktrace=always)

@@ -1,0 +1,11 @@
+vuln_id,owasp,classe,rota,zap,restest,postman,brute
+VULN-SQLI-01,API8:2023,SQL Injection,/api/products/search,-,N/A,-,-
+VULN-SQLI-02,API8:2023,SQL Injection,/api/products/{id},-,N/A,-,-
+VULN-SQLI-03,API8:2023,SQL Injection (login),/api/auth/login,-,N/A,-,-
+VULN-BOLA-01,API1:2023,Broken Object Level Authorization,/api/orders/{id},-,N/A,-,-
+VULN-BOLA-02,API3:2023,Excessive Data Exposure,/api/orders/{id},-,N/A,-,-
+VULN-AUTH-01,API2:2023,Broken Authentication - sem rate limit / lockout,/api/auth/login,-,N/A,-,-
+VULN-AUTH-02,API2:2023,User Enumeration,/api/auth/login,-,N/A,-,-
+VULN-MISC-01,API8:2023,Security Misconfiguration - actuator/debug expostos,/api/debug/config,-,N/A,-,-
+VULN-MISC-02,API8:2023,Security Misconfiguration - CORS permissivo,*,-,N/A,-,-
+VULN-MISC-03,API8:2023,Security Misconfiguration - stack trace vazado,/api/debug/error,-,N/A,-,-
