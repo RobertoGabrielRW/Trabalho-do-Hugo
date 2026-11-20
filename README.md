@@ -139,7 +139,6 @@ O gabarito oficial ([`analysis/ground_truth.json`](apisec-testbed_1/apisec-testb
 
 Todos os artefatos gerados estão versionados no repositório para ciência aberta e replicabilidade:
 
-- 📄 **Relatório Final de Resultados em PDF (5 páginas com tabelas e gráficos):** [`RELATORIO-FINAL-RESULTADOS.pdf`](apisec-testbed_1/apisec-testbed/results/RELATORIO-FINAL-RESULTADOS.pdf)
 - 📊 **Planilha Excel Consolidada (8 abas + 6 gráficos integrados):** [`APISec-Benchmark-Completo.xlsx`](apisec-testbed_1/apisec-testbed/results/APISec-Benchmark-Completo.xlsx)
 - 📈 **Relatórios Estatísticos das 10 Rodadas:** [`relatorio-10-rodadas.md`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.md) | [`relatorio-10-rodadas.csv`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.csv) | [`restest-repeticoes.md`](apisec-testbed_1/apisec-testbed/results/restest-repeticoes.md)
 - 🌐 **Dashboard HTML de Apresentação:** [`results/index.html`](apisec-testbed_1/apisec-testbed/results/index.html)
@@ -231,7 +230,6 @@ Trabalho-do-Hugo/
     │   ├── recursos.py                        # Coletor de CPU (%) e RAM (MiB) via docker stats
     │   ├── prom_snapshot.py                   # Exportador de séries temporais do Prometheus
     │   ├── visualizar.py                      # Visualizador consolidado em tabela no terminal
-    │   ├── gerar_excel.py                     # Gerador da planilha APISec-Benchmark-Completo.xlsx
-    │   └── gerar_relatorio_pdf.py             # Gerador do PDF RELATORIO-FINAL-RESULTADOS.pdf
-    └── results/                               # Relatórios brutos, 10 rodadas, RESTest, PDF, HTML e Excel
+    │   └── gerar_excel.py                     # Gerador da planilha APISec-Benchmark-Completo.xlsx
+    └── results/                               # Relatórios brutos, 10 rodadas, RESTest, HTML e Excel
 ```
