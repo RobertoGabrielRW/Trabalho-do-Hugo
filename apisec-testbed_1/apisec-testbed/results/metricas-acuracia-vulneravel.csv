@@ -1,4 +1,5 @@
 ferramenta,perfil,TP,FP,FN,REGRESSOES,TPR_recall,precisao,FDR,F1,n_alertas
 zap,vulneravel,2,165,3,0,0.4,0.012,0.988,0.023,168
+restest,vulneravel,1,3,4,0,0.2,0.25,0.75,0.222,4
 postman,vulneravel,5,0,0,0,1.0,1.0,0.0,1.0,5
 brute,vulneravel,1,0,0,0,1.0,1.0,0.0,1.0,1

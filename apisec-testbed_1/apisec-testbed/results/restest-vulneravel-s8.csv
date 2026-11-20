@@ -1,0 +1,5 @@
+rota,operacao,codigo,titulo,severidade,contagem,id_gabarito,observacao
+/api/orders/{id},getOrder,F206,Invalid data accepted,error,19,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)
+/api/products/{id},getProduct,F100,Internal server error,error,789,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)
+/api/auth/login,login,F206,Invalid data accepted,error,5,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)
+/api/products/search,searchProducts,F100,Internal server error,error,295,VULN-SQLI-01,500 so no vulneravel: atribuido por diferenca entre perfis

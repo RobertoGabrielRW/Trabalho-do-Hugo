@@ -1,0 +1,2 @@
+rota,operacao,codigo,titulo,severidade,contagem,id_gabarito,observacao
+/api/products/{id},getProduct,F100,Internal server error,error,62,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)

@@ -107,28 +107,31 @@ O gabarito oficial ([`analysis/ground_truth.json`](apisec-testbed_1/apisec-testb
 
 ## 📊 Resultados Empíricos Consolidados
 
-### 1. Acurácia de Detecção por Ferramenta (Etapa B)
+### 1. Acurácia de Detecção por Ferramenta (Etapa B — 4 Ferramentas)
 
 | Ferramenta | Perfil | TP | FP | FN | Regressões | TPR (Recall) | Precisão | FDR (`1 - P`) | F1-Score |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **OWASP ZAP (DAST)** | Vulnerável | `2` | `165` | `3` | `0` | `0.400` | `0.012` | `0.988` | `0.023` |
+| **RESTest (Contrato — 10 seeds)** | Vulnerável | `1` | `3` | `4` | `0` | `0.200` | `0.250` | `0.750` | `0.222` |
 | **Postman / Newman (Lógica)** | Vulnerável | `5` | `0` | `0` | `0` | `1.000` | `1.000` | `0.000` | `1.000` |
 | **Brute Force (`brute_force.py`)** | Vulnerável | `1` | `0` | `0` | `0` | `1.000` | `1.000` | `0.000` | `1.000` |
 | **OWASP ZAP (DAST)** | Protegido | `0` | `17` | `0` | **`0`** | `0.000` | `0.000` | `1.000` | `0.000` |
+| **RESTest (Contrato — 10 seeds)** | Protegido | `0` | `2` | `0` | **`0`** | `0.000` | `0.000` | `1.000` | `0.000` |
 | **Postman / Newman (Lógica)** | Protegido | `0` | `0` | `0` | **`0`** | `0.000` | `0.000` | `0.000` | `0.000` |
 | **Brute Force (`brute_force.py`)** | Protegido | `0` | `0` | `0` | **`0`** | `0.000` | `0.000` | `0.000` | `0.000` |
 
 ### 2. Estabilidade Estatística nas 10 Rodadas ($\mu \pm \sigma$ populacional, $N=10$)
 
-| Métrica Avaliada | Perfil `VULNERÁVEL` (`r1`–`r10`) | Perfil `PROTEGIDO` (`r1`–`r10`) |
+| Métrica Avaliada | Perfil `VULNERÁVEL` (`r1`–`r10` / `s1`–`s10`) | Perfil `PROTEGIDO` (`r1`–`r10` / `s1`–`s10`) |
 | :--- | :---: | :---: |
+| **RESTest (`s1`–`s10`) — TP / FP / FN** | `1.0 ± 0.0` / `3.0 ± 0.0` / `4.0 ± 0.0` (`VULN-SQLI-01`) | `0.0 ± 0.0` / `2.4 ± 0.7` / `0.0 ± 0.0` (`0` regressões) |
 | **Força Bruta — HTTP `401` / HTTP `429`** | `100.0 ± 0.0` / `0.0 ± 0.0` (`10/10` vulnerável) | `48.1 ± 12.3` / `50.9 ± 11.8` (`10/10` bloqueado) |
 | **Latência `p50` / `p95` (`GET /api/orders/1`)** | `93.42 ± 34.75 ms` / `210.80 ± 55.31 ms` | `75.01 ± 18.99 ms` / `200.90 ± 62.45 ms` |
 | **Throughput / Taxa de Bloqueio (`HTTP 429`)** | `348.9 ± 14.6 RPS` / `0.0% ± 0.0%` | `357.4 ± 6.7 RPS` / `91.3% ± 3.4%` |
 | **CPU Média — `apisec-gateway` / `apisec-target`** | `57.83% ± 26.94%` / `34.23% ± 20.92%` | `57.90% ± 26.77%` / `26.96% ± 14.65%` |
 | **RAM Média — `apisec-gateway` / `apisec-target`** | `236.5 ± 11.7 MiB` / `216.8 ± 7.6 MiB` | `208.4 ± 10.9 MiB` / `183.4 ± 7.5 MiB` |
 
-> **Conclusão Empírica:** Scanners DAST caixa-preta (OWASP ZAP) capturam falhas sintáticas (SQLi, stack trace), mas apresentam alto ruído (`FDR = 0.988`) e não detectam falhas semânticas de autorização (BOLA/API1 e Exposição Excessiva/API3), que exigem testes orientados a lógica/estado (Postman/Newman, `F1 = 1.000`). No perfil protegido, as defesas combinadas eliminam 100% das 10 falhas (`0` regressões nas 10 rodadas) e ainda reduzem a CPU do microsserviço alvo sob rajada graças ao *Rate Limiting* na borda do Gateway.
+> **Conclusão Empírica:** Scanners DAST caixa-preta (OWASP ZAP) e fuzzers por contrato (RESTest — `10/10` seeds estáveis em `VULN-SQLI-01`) capturam falhas sintáticas, mas não detectam falhas semânticas de autorização (BOLA/API1 e Exposição Excessiva/API3), que exigem testes orientados a lógica/estado (Postman/Newman, `F1 = 1.000`) e rajadas concorrentes (`brute_force.py`, `F1 = 1.000`). No perfil protegido, as defesas combinadas eliminam 100% das 10 falhas (`0` regressões nas 4 ferramentas em todas as 10 rodadas) e ainda reduzem a CPU do microsserviço alvo sob rajada graças ao *Rate Limiting* na borda do Gateway.
 
 ---
 
@@ -136,8 +139,9 @@ O gabarito oficial ([`analysis/ground_truth.json`](apisec-testbed_1/apisec-testb
 
 Todos os artefatos gerados estão versionados no repositório para ciência aberta e replicabilidade:
 
+- 📄 **Relatório Final de Resultados em PDF (5 páginas com tabelas e gráficos):** [`RELATORIO-FINAL-RESULTADOS.pdf`](apisec-testbed_1/apisec-testbed/results/RELATORIO-FINAL-RESULTADOS.pdf)
 - 📊 **Planilha Excel Consolidada (8 abas + 6 gráficos integrados):** [`APISec-Benchmark-Completo.xlsx`](apisec-testbed_1/apisec-testbed/results/APISec-Benchmark-Completo.xlsx)
-- 📈 **Relatório Estatístico das 10 Rodadas:** [`relatorio-10-rodadas.md`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.md) | [`relatorio-10-rodadas.csv`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.csv)
+- 📈 **Relatórios Estatísticos das 10 Rodadas:** [`relatorio-10-rodadas.md`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.md) | [`relatorio-10-rodadas.csv`](apisec-testbed_1/apisec-testbed/results/relatorio-10-rodadas.csv) | [`restest-repeticoes.md`](apisec-testbed_1/apisec-testbed/results/restest-repeticoes.md)
 - 🌐 **Dashboard HTML de Apresentação:** [`results/index.html`](apisec-testbed_1/apisec-testbed/results/index.html)
 - 🔎 **Relatórios OWASP ZAP:** [`zap-vulneravel.html`](apisec-testbed_1/apisec-testbed/results/zap-vulneravel.html) | [`zap-protegido.html`](apisec-testbed_1/apisec-testbed/results/zap-protegido.html)
 - 📐 **Definição Formal das Métricas:** [`METRICAS.md`](apisec-testbed_1/apisec-testbed/METRICAS.md)
@@ -227,6 +231,7 @@ Trabalho-do-Hugo/
     │   ├── recursos.py                        # Coletor de CPU (%) e RAM (MiB) via docker stats
     │   ├── prom_snapshot.py                   # Exportador de séries temporais do Prometheus
     │   ├── visualizar.py                      # Visualizador consolidado em tabela no terminal
-    │   └── gerar_excel.py                     # Gerador da planilha APISec-Benchmark-Completo.xlsx
-    └── results/                               # Relatórios brutos, 10 rodadas, Dashboard HTML e Excel
+    │   ├── gerar_excel.py                     # Gerador da planilha APISec-Benchmark-Completo.xlsx
+    │   └── gerar_relatorio_pdf.py             # Gerador do PDF RELATORIO-FINAL-RESULTADOS.pdf
+    └── results/                               # Relatórios brutos, 10 rodadas, RESTest, PDF, HTML e Excel
 ```

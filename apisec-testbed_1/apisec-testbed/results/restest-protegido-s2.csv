@@ -1,0 +1,3 @@
+rota,operacao,codigo,titulo,severidade,contagem,id_gabarito,observacao
+/api/products/{id},getProduct,F100,Internal server error,error,49,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)
+/api/auth/login,login,F206,Invalid data accepted,error,1,NAO-ATRIBUIDO,sem correspondencia no gabarito (falso positivo)
